@@ -19,11 +19,31 @@
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
         <script>
-            const srcc = document.querySelectorAll("[src]");
-            console.log(srcc);
-            srcc.forEach(function (item) {
-                console.log(item);
-            });
+            setTimeout(() => {
+                {
+                    const sr = document.querySelectorAll("[src]");
+                    // console.log(srcc);
+                    // sr.forEach(function (item) {
+                    //     console.dir(item);
+                    // });
+
+                    sr.forEach(function (item) {
+                        // console.dir(item.__reactProps$j0eez6scejq);
+                        // if (item.__reactProps$j0eez6scejq) {
+                        //     console.log(item.__reactProps$j0eez6scejq);
+                        //     item.src = "." + item.__reactProps$j0eez6scejq.src;
+                        // }
+                        if (item.src.includes("/static")) {
+                            const [h, src] = item.src.split("/static");
+                            item.src = "./static" + src;
+                        }
+                    });
+
+                    const banner = document.querySelector(".banner");
+                    banner.style.backgroundImage =
+                        "url(./static/media/banner-bg.cc1273af450504afe755.png)";
+                }
+            }, 1500);
         </script>
     </body>
 </html>
